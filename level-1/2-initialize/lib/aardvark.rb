@@ -6,3 +6,5 @@ class Aardvark
     @name = name
   end
 end
+
+art = Aardvark.new("Art")
