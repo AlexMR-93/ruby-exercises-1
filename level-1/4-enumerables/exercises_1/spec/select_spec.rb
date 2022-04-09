@@ -8,64 +8,92 @@ RSpec.describe 'select' do
     expect(evens).to eq([2, 4, 6, 8, 10])
   end
 
-  xit 'odd numbers' do
+  it 'odd numbers' do
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     odds = numbers.select do |number|
-      # Your code goes here
+      number.odd?
     end
+      # Your code goes here
     expect(odds).to eq([1, 3, 5, 7, 9])
   end
 
-  xit 'words with three letters' do
+  it 'words with three letters' do
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
+    selected = words.select do |word|
+      word.length == 3
+    end
     # Your code goes here
     expect(selected).to eq(["bad", "cat", "dog", "red"])
   end
 
-  xit 'words with more than three letters' do
+  it 'words with more than three letters' do
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
+    selected = words.select do |word|
+      word.length > 3
+    end
     # Your code goes here
     expect(selected).to eq(["pill", "finger", "blue", "table"])
   end
 
-  xit 'wordss ending in e' do
+  it 'wordss ending in e' do
     words = ["are", "you", "strike", "thinking", "belt", "piece", "warble", "sing", "pipe"]
+    selected = words.select do |word|
+      word.end_with?('e')
+    end
     # Your code goes here
     expect(selected).to eq(["are", "strike", "piece", "warble", "pipe"])
   end
 
-  xit 'words ending in ing' do
+  it 'words ending in ing' do
     words = ["bring", "finger", "drought", "singing", "bingo", "purposeful"]
+    selected = words.select do |word|
+      word.end_with?('ing')
+    end
     # Your code goes here
     expect(selected).to eq(["bring", "singing"])
   end
 
-  xit 'words containing e' do
+  it 'words containing e' do
     words = ["four", "red", "five", "blue", "pizza", "purple"]
+    selected = words.select do |word|
+      word.include?('e')
+    end
     # Your code goes here
     expect(selected).to eq(["red", "five", "blue", "purple"])
   end
 
-  xit 'dinosaurs' do
+  it 'dinosaurs' do
     animals = ["tyrannosaurus", "narwhal", "eel", "achillesaurus", "qingxiusaurus"]
+    dinosaurs = animals.select do |a|
+      a.include?('us')
+    end
     # Your code goes here
     expect(dinosaurs).to eq(["tyrannosaurus", "achillesaurus", "qingxiusaurus"])
   end
 
-  xit 'floats' do
+  it 'floats' do
     numbers = [3, 1.4, 3.5, 2, 4.9, 9.1, 8.0]
+    floats = numbers.select do |n|
+      n.is_a?(Float)
+    end
     # Your code goes here
     expect(floats).to eq([1.4, 3.5, 4.9, 9.1, 8.0])
   end
 
-  xit 'arrays' do
+  it 'arrays' do
     elements = ["CAT", ["dog"], 23, [56, 3, 8], "AIMLESS", 43, "butter"]
+    arrays = elements.select do |e|
+      e.is_a?(Array)
+    end
     # Your code goes here
     expect(arrays).to eq([["dog"], [56, 3, 8]])
   end
 
-  xit 'hashes' do
+  it 'hashes' do
     elements = ["cat", {:dog=>"fido"}, 23, {:stuff=>"things"}, "aimless", 43]
+    hashes = elements.select do |e|
+      e.is_a?(Hash)
+    end
     # Your code goes here
     expect(hashes).to eq([{:dog=>"fido"}, {:stuff=>"things"}])
   end
