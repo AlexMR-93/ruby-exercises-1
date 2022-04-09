@@ -9,48 +9,72 @@ RSpec.describe 'map pattern' do
     expect(capitalized_names).to eq(["Alice", "Bob", "Charlie"])
   end
 
-  xit 'doubles' do
+  it 'doubles' do
     numbers = [1, 2, 3, 4, 5]
     doubles = []
     numbers.each do |number|
-      # Your code goes here
+      doubles << number * 2
     end
+      # Your code goes here
     expect(doubles).to eq([2, 4, 6, 8, 10])
   end
 
-  xit 'squares' do
+  it 'squares' do
     numbers = [1, 2, 3, 4, 5]
     squares = []
+    numbers.each do |number|
+      squares << number * number
+    end
     # Your code goes here
     expect(squares).to eq([1, 4, 9, 16, 25])
   end
 
-  xit 'lengths' do
+  it 'lengths' do
     names = ["alice", "bob", "charlie", "david", "eve"]
+    lengths = []
+    names.each do |name|
+      lengths << name.length
+    end
     # Your code goes here
     expect(lengths).to eq([5, 3, 7, 5, 3])
   end
 
-  xit 'normalize zip codes' do
+  it 'normalize zip codes' do
     numbers = [234, 10, 9119, 38881]
+    zip_code = []
+    numbers.each do |number|
+      zip_code << number.to_s.rjust(5, "0")
+    end
     # Your code goes here
     expect(zip_code).to eq(["00234", "00010", "09119", "38881"])
   end
 
-  xit 'backwards' do
+  it 'backwards' do
     names = ["alice", "bob", "charlie", "david", "eve"]
+    backwards = []
+    names.each do |n|
+      backwards << n.reverse
+    end
     # Your code goes here
     expect(backwards).to eq(["ecila", "bob", "eilrahc", "divad", "eve"])
   end
 
-  xit 'words with no vowels' do
+  it 'words with no vowels' do
     words = ["green", "sheep", "travel", "least", "boat"]
+    no_vowels = []
+    words.each do |word|
+      no_vowels << word.delete("aeiou")
+    end
     # Your code goes here
-    expect(without_vowels).to  eq(["grn", "shp", "trvl", "lst", "bt"])
+    expect(no_vowels).to  eq(["grn", "shp", "trvl", "lst", "bt"])
   end
 
-  xit 'trims last letter' do
+  it 'trims last letter' do
     animals = ["dog", "cat", "mouse", "frog", "platypus"]
+    trimmed = []
+    animals.each do |animal|
+      trimmed << animal.chop
+    end
     # Your code goes here
     expect(trimmed).to eq(["do", "ca", "mous", "fro", "platypu"])
   end
