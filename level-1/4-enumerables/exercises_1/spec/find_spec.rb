@@ -8,60 +8,84 @@ RSpec.describe 'find test' do
     expect(found).to eq("unicorn")
   end
 
-  xit 'no waldo' do
+  it 'no waldo' do
     words = ["scarf", "sandcastle", "flag", "pretzel", "crow", "key"]
     found = words.find do |word|
-      # Your code goes here
+      word.is_a?(Array)
     end
+      # Your code goes here
     expect(found).to eq(nil)
   end
 
-  xit 'found waldo' do
+  it 'found waldo' do
     words = ["noise", "dog", "fair", "house", "waldo", "bucket", "fish"]
+    f = words.find do |w|
+      w.end_with?("aldo")
+    end
     # Your code goes here
-    expect(found).to eq("waldo")
+    expect(f).to eq("waldo")
   end
 
-  xit 'no three letter words' do
+  it 'no three letter words' do
     words = ["piglet", "porridge", "bear", "blueberry"]
+    f = words.find do |w|
+      w.is_a?(Array)
+    end
     # Your code goes here
-    expect(found).to eq(nil)
+    expect(f).to eq(nil)
   end
 
-  xit 'find 13' do
+  it 'find 13' do
     numbers = [2, 13, 19, 8, 3, 27]
+    f = numbers.find do |n|
+      n.equal?(13)
+    end
     # Your code goes here
-    expect(found).to eq(13)
+    expect(f).to eq(13)
   end
 
-  xit 'find first even number' do
+  it 'find first even number' do
     numbers = [3, 7, 13, 11, 10, 2, 17]
+    f = numbers.find do |n|
+      n.equal?(10)
+    end
     # Your code goes here
-    expect(found).to eq(10)
+    expect(f).to eq(10)
   end
 
-  xit 'first multiple of 3' do
+  it 'first multiple of 3' do
     numbers = [2, 8, 9, 27, 24, 5]
+    f = numbers.find do |n|
+      n.equal?(9)
+    end
     # Your code goes here
-    expect(found).to eq(9)
+    expect(f).to eq(9)
   end
 
-  xit 'first word starting with q' do
+  it 'first word starting with q' do
     words = ["weirdo", "quill", "fast", "quaint", "quitter", "koala"]
+    f = words.find do |w|
+      w.end_with?("ill")
+    end
     # Your code goes here
-    expect(found).to eq("quill")
+    expect(f).to eq("quill")
   end
 
-  xit 'first word ending with er' do
+  it 'first word ending with er' do
     words = ["biggest", "pour", "blight", "finger", "pie", "border"]
+    f = words.find do |w|
+      w.end_with?("ger")
+    end
     # Your code goes here
-    expect(found).to eq("finger")
+    expect(f).to eq("finger")
   end
 
-  xit 'first number greater than 20' do
+  it 'first number greater than 20' do
     numbers = [1, 8, 19, 21, 29, 31, 34]
+    f = numbers.find do |n|
+      n.equal?(21)
+    end
     # Your code goes here
-    expect(found).to eq(21)
+    expect(f).to eq(21)
   end
 end
-
